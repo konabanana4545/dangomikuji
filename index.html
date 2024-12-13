@@ -13,6 +13,7 @@
             height: 100vh;
             margin: 0;
             font-family: Arial, sans-serif;
+            background: #f7f7f7;
         }
         h1 {
             font-size: 5em;
@@ -22,10 +23,26 @@
             max-width: 50%;
             height: auto;
         }
+        .button {
+            margin-top: 20px;
+            padding: 15px 30px;
+            font-size: 1.5em;
+            color: white;
+            background-color: #ff69b4;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 20px rgba(255, 105, 180, 0.6);
+        }
     </style>
 </head>
 <body>
     <h1>団子おみくじ</h1>
     <img src="dango.png" alt="Dango">
+    <button class="button">おみくじ</button>
 </body>
 </html>
