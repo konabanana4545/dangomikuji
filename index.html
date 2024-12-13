@@ -39,7 +39,8 @@
             box-shadow: 0 0 20px rgba(255, 105, 180, 0.6);
         }
         .message {
-            font-size: 5em;
+            font-size: 3em;
+            margin-top: 20px;
         }
         .hidden {
             display: none;
@@ -57,4 +58,26 @@
     <script>
         function drawFortune() {
             const checkingDiv = document.getElementById('checking');
-            const
+            const messageDiv = document.getElementById('message');
+            const button = document.querySelector('.button');
+
+            // おみくじを引くボタンを無効にする
+            button.disabled = true;
+
+            // 「行いを確認しています…」を表示
+            checkingDiv.classList.remove('hidden');
+
+            // 少し待ってからおみくじの結果を表示
+            setTimeout(() => {
+                checkingDiv.classList.add('hidden');  // 「行いを確認しています…」を非表示
+                const fortunes = ['大吉', '吉', '中吉', '凶', '大凶'];
+                const randomFortune = fortunes[Math.floor(Math.random() * fortunes.length)];
+                messageDiv.textContent = `あなたの運勢は… ${randomFortune}`;
+                
+                // ボタンを再度有効にする
+                button.disabled = false;
+            }, 3000);  // 3秒後に結果を表示
+        }
+    </script>
+</body>
+</html>
