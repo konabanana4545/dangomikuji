@@ -38,11 +38,37 @@
             transform: scale(1.1);
             box-shadow: 0 0 20px rgba(255, 105, 180, 0.6);
         }
+        .message {
+            margin-top: 20px;
+            font-size: 2em;
+        }
     </style>
 </head>
 <body>
     <h1>団子おみくじ</h1>
     <img src="dango.png" alt="Dango">
-    <button class="button">おみくじ</button>
+    <button class="button" onclick="drawFortune()">おみくじ</button>
+    <div id="message" class="message"></div>
+    <audio src="法師.mp3" autoplay loop></audio>
+
+    <script>
+        function drawFortune() {
+            const messageDiv = document.getElementById('message');
+            messageDiv.innerText = '行いを確認しています…';
+            
+            setTimeout(() => {
+                const results = ['緑', 'ピンク', '白'];
+                const colors = {
+                    '緑': 'green',
+                    'ピンク': 'pink',
+                    '白': 'white'
+                };
+                const result = results[Math.floor(Math.random() * results.length)];
+                messageDiv.innerText = result;
+                messageDiv.style.color = colors[result];
+                messageDiv.style.fontSize = '5em';
+            }, 1600);
+        }
+    </script>
 </body>
 </html>
