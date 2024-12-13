@@ -42,11 +42,14 @@
             margin-top: 20px;
             font-size: 2em;
         }
+        .hidden {
+            display: none;
+        }
     </style>
 </head>
 <body>
-    <h1>団子おみくじ</h1>
-    <img src="dango.png" alt="Dango">
+    <h1 id="title">団子おみくじ</h1>
+    <img id="dangoImage" src="dango.png" alt="Dango">
     <button class="button" onclick="drawFortune()">おみくじ</button>
     <div id="message" class="message"></div>
     <audio src="法師.mp3" autoplay loop></audio>
@@ -54,6 +57,8 @@
     <script>
         function drawFortune() {
             const messageDiv = document.getElementById('message');
+            const dangoImage = document.getElementById('dangoImage');
+            const title = document.getElementById('title');
             messageDiv.innerText = '行いを確認しています…';
             
             setTimeout(() => {
@@ -64,9 +69,16 @@
                     '白': 'white'
                 };
                 const result = results[Math.floor(Math.random() * results.length)];
+                
+                // Hide the image and display the result
+                dangoImage.classList.add('hidden');
                 messageDiv.innerText = result;
                 messageDiv.style.color = colors[result];
                 messageDiv.style.fontSize = '5em';
+
+                // Change title to match result
+                title.innerText = result;
+                title.style.color = colors[result];
             }, 1600);
         }
     </script>
