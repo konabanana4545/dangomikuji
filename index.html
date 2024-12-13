@@ -39,8 +39,7 @@
             box-shadow: 0 0 20px rgba(255, 105, 180, 0.6);
         }
         .message {
-            margin-top: 20px;
-            font-size: 2em;
+            font-size: 5em;
         }
         .hidden {
             display: none;
@@ -48,39 +47,14 @@
     </style>
 </head>
 <body>
-    <h1 id="title">団子おみくじ</h1>
+    <h1>団子おみくじ</h1>
     <img id="dangoImage" src="dango.png" alt="Dango">
     <button class="button" onclick="drawFortune()">おみくじ</button>
+    <div id="checking" class="message hidden">行いを確認しています… <img id="tyuImage" src="tyu.png" alt="Checking"></div>
     <div id="message" class="message"></div>
     <audio src="法師.mp3" autoplay loop></audio>
 
     <script>
         function drawFortune() {
-            const messageDiv = document.getElementById('message');
-            const dangoImage = document.getElementById('dangoImage');
-            messageDiv.innerText = '行いを確認しています…';
-            
-            setTimeout(() => {
-                const results = ['緑', 'ピンク', '白'];
-                const colors = {
-                    '緑': 'green',
-                    'ピンク': 'pink',
-                    '白': 'white'
-                };
-                const result = results[Math.floor(Math.random() * results.length)];
-                
-                // Hide the image and display the result
-                dangoImage.classList.add('hidden');
-                messageDiv.innerText = result;
-                messageDiv.style.color = colors[result];
-                messageDiv.style.fontSize = '5em';
-                messageDiv.style.marginTop = '0'; // Adjust to center
-
-                // Hide the original title
-                const title = document.getElementById('title');
-                title.classList.add('hidden');
-            }, 1600);
-        }
-    </script>
-</body>
-</html>
+            const checkingDiv = document.getElementById('checking');
+            const
