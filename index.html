@@ -58,7 +58,6 @@
         function drawFortune() {
             const messageDiv = document.getElementById('message');
             const dangoImage = document.getElementById('dangoImage');
-            const title = document.getElementById('title');
             messageDiv.innerText = '行いを確認しています…';
             
             setTimeout(() => {
@@ -75,10 +74,11 @@
                 messageDiv.innerText = result;
                 messageDiv.style.color = colors[result];
                 messageDiv.style.fontSize = '5em';
+                messageDiv.style.marginTop = '0'; // Adjust to center
 
-                // Change title to match result
-                title.innerText = result;
-                title.style.color = colors[result];
+                // Hide the original title
+                const title = document.getElementById('title');
+                title.classList.add('hidden');
             }, 1600);
         }
     </script>
